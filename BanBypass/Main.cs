@@ -32,7 +32,7 @@ namespace BanBypass
 
             H.Patch(API.GetProperty("DeviceID").GetGetMethod(), AccessTools.Method(typeof(BanBypass), "DeviceID"));
             H.Patch(Amp.GetMethod("InitializeDeviceId"), AccessTools.Method(typeof(BanBypass), "DeviceID1"));
-            H.Patch(Amp.GetMethods().First(x => x.Name == "LogEvent" && x.GetReturnType().Name == typeof(int).FullName), AccessTools.Method(typeof(BanBypass), "LogEvent"));
+            H.Patch(Amp.GetMethods(x => x.Name == "LogEvent" && x.GetParameterCount() == 4 && NET_SDK.IL2CPP.il2cpp_type_get_name(x.GetParameters()[2].Ptr).Equals("System.Int64")).First(), AccessTools.Method(typeof(BanBypass), "LogEvent"));
 
             if (Config.CFG.ConsolePrint)
             {
