@@ -15,7 +15,7 @@ namespace BanBypass
         public const string Name = "Ban Bypass"; // Name of the Mod.  (MUST BE SET)
         public const string Author = "404#0004"; // Author of the Mod.  (Set as null if none)
         public const string Company = "I am not a company -Kappa-"; // Company that made the Mod.  (Set as null if none)
-        public const string Version = "1.0.0"; // Version of the Mod.  (MUST BE SET)
+        public const string Version = "1.1.0"; // Version of the Mod.  (MUST BE SET)
         public const string DownloadLink = null; // Download Link for the Mod.  (Set as null if none)
     }
 
@@ -29,7 +29,7 @@ namespace BanBypass
             Config.LoadConfig();
 
             var oldhwid = VRC.Core.API.DeviceID;
-
+            
             H.Patch(API.GetProperty("DeviceID").GetGetMethod(), AccessTools.Method(typeof(BanBypass), "DeviceID"));
             H.Patch(Amp.GetMethod("InitializeDeviceId"), AccessTools.Method(typeof(BanBypass), "DeviceID1"));
             H.Patch(Amp.GetMethods(x => x.Name == "LogEvent" && x.GetParameterCount() == 4 && NET_SDK.IL2CPP.il2cpp_type_get_name(x.GetParameters()[2].Ptr).Equals("System.Int64")).First(), AccessTools.Method(typeof(BanBypass), "LogEvent"));
