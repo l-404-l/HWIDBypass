@@ -15,7 +15,7 @@ namespace BanBypass
         public const string Name = "Ban Bypass"; // Name of the Mod.  (MUST BE SET)
         public const string Author = "404#0004"; // Author of the Mod.  (Set as null if none)
         public const string Company = "I am not a company -Kappa-"; // Company that made the Mod.  (Set as null if none)
-        public const string Version = "1.1.0"; // Version of the Mod.  (MUST BE SET)
+        public const string Version = "1.2.0"; // Version of the Mod.  (MUST BE SET)
         public const string DownloadLink = null; // Download Link for the Mod.  (Set as null if none)
     }
 
@@ -23,7 +23,7 @@ namespace BanBypass
     {
         public static IL2CPP_Class API = NET_SDK.SDK.GetClass("VRC.Core", "API");
         public static IL2CPP_Class Amp = NET_SDK.SDK.GetClass("AmplitudeSDKWrapper", "AmplitudeWrapper");
-        public static Instance H = NET_SDK.Harmony.Manager.CreateInstance("404BanBypass");
+        public static Instance H = Manager.CreateInstance("404BanBypass");
         public override void OnApplicationStart()
         {
             Config.LoadConfig();
