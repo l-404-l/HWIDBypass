@@ -4,9 +4,11 @@ Disables your hwid from being sent to VRChat.
 # Requirements
 - [MelonLoader](https://github.com/HerpDerpinstine/MelonLoader)
 - [SharpYaml](https://github.com/xoofx/SharpYaml)
+- Public Releases [Discord](https://discord.gg/PMmbwc2) Files
 
 # Install
-- Install MelonLoader with Vrchats DLLS.
-- Run the game atleast once.
-- Put SharpYaml in Melon Loader Managed
-- Put BanBypass.dll in VRChat/Mods 
+- Join my public releases [discord](https://discord.gg/PMmbwc2) for required files
+
+
+# Please do not use my code for your own projects.
+Only use my dlls and hook into them. Thank you.
