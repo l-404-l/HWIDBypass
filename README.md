@@ -1,4 +1,4 @@
-# BanBypass
+# HWIDBypass
 Disables your hwid from being sent to VRChat.
 
 # Requirements
