@@ -25,10 +25,11 @@ namespace HWIDBypass
         public override void OnApplicationStart()
         {
             Config.LoadConfig();
+
             IL2CPP_Class API = NET_SDK.SDK.GetClass("VRC.Core", "API");
             IL2CPP_Class Amp = NET_SDK.SDK.GetClass("AmplitudeSDKWrapper", "AmplitudeWrapper");
             var oldhwid = VRC.Core.API.DeviceID;
-            
+
             H.Patch(API.GetProperty("DeviceID").GetGetMethod(), AccessTools.Method(typeof(Main), "DeviceID"));
             H.Patch(Amp.GetMethod("InitializeDeviceId"), AccessTools.Method(typeof(Main), "DeviceID1"));
             H.Patch(Amp.GetMethods(x => x.Name == "LogEvent" && x.GetParameterCount() == 4 && NET_SDK.IL2CPP.il2cpp_type_get_name(x.GetParameters()[2].Ptr).Equals("System.Int64")).First(), AccessTools.Method(typeof(Main), "LogEvent"));
@@ -42,18 +43,12 @@ namespace HWIDBypass
             }
         }
 
-        public string DeviceID()
-        {
-            return GetDevice();
-        }
-        public static string DeviceID1(IntPtr instance)
-        {
-            return GetDevice();
-        }
-        public static int LogEvent(IntPtr instance, string var, IDictionary<string, object> var2, long var3, IntPtr var4)
-        {
-            return 0;
-        }
+        public string DeviceID() =>
+            GetDevice();
+        public static string DeviceID1(IntPtr instance) =>
+            GetDevice();
+
+        public static int LogEvent(IntPtr instance, string var, IDictionary<string, object> var2, long var3, IntPtr var4) => 0;
 
         private static string GetDevice()
         {
