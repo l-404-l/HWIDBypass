@@ -1,4 +1,4 @@
-﻿using SharpYaml.Serialization;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -6,25 +6,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BanBypass
+namespace HWIDBypass
 {
     public class Config
     {
         public static string MainFolder = "404Mods";
-        public static string ModLocation = "hwid.yml";
+        public static string ModLocation = "hwid.json";
         public static Config CFG;
 
         public string HWID = null;
         public bool ConsolePrint = true;
         public static void SaveConfig()
         {
-            var Yml = new Serializer();
             if (CFG != null)
-                File.WriteAllText(MainFolder + "//" + ModLocation, Yml.Serialize(CFG));
+                File.WriteAllText(MainFolder + "//" + ModLocation, JsonConvert.SerializeObject(CFG));
         }
         public static Config LoadConfig()
         {
-            var Yml = new Serializer();
+            
             Directory.CreateDirectory(MainFolder);
 
             if (!File.Exists(MainFolder + "//" + ModLocation))
@@ -35,7 +34,7 @@ namespace BanBypass
             }
             else
             {
-                CFG = Yml.Deserialize<Config>(File.ReadAllText(MainFolder + "//" + ModLocation));
+                CFG = JsonConvert.DeserializeObject<Config>(File.ReadAllText(MainFolder + "//" + ModLocation));
                 if (CFG == null)
                     CFG = new Config();
                 SaveConfig();

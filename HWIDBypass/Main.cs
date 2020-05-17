@@ -8,31 +8,30 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace BanBypass
+namespace HWIDBypass
 {
     public static class BuildInfo
     {
-        public const string Name = "Ban Bypass"; // Name of the Mod.  (MUST BE SET)
+        public const string Name = "HWID Bypass"; // Name of the Mod.  (MUST BE SET)
         public const string Author = "404#0004"; // Author of the Mod.  (Set as null if none)
         public const string Company = "I am not a company -Kappa-"; // Company that made the Mod.  (Set as null if none)
-        public const string Version = "1.2.0"; // Version of the Mod.  (MUST BE SET)
+        public const string Version = "1.3.0"; // Version of the Mod.  (MUST BE SET)
         public const string DownloadLink = null; // Download Link for the Mod.  (Set as null if none)
     }
 
-    public class BanBypass : MelonMod
+    public class Main : MelonMod
     {
-        public static IL2CPP_Class API = NET_SDK.SDK.GetClass("VRC.Core", "API");
-        public static IL2CPP_Class Amp = NET_SDK.SDK.GetClass("AmplitudeSDKWrapper", "AmplitudeWrapper");
         public static Instance H = Manager.CreateInstance("404BanBypass");
         public override void OnApplicationStart()
         {
             Config.LoadConfig();
-
+            IL2CPP_Class API = NET_SDK.SDK.GetClass("VRC.Core", "API");
+            IL2CPP_Class Amp = NET_SDK.SDK.GetClass("AmplitudeSDKWrapper", "AmplitudeWrapper");
             var oldhwid = VRC.Core.API.DeviceID;
             
-            H.Patch(API.GetProperty("DeviceID").GetGetMethod(), AccessTools.Method(typeof(BanBypass), "DeviceID"));
-            H.Patch(Amp.GetMethod("InitializeDeviceId"), AccessTools.Method(typeof(BanBypass), "DeviceID1"));
-            H.Patch(Amp.GetMethods(x => x.Name == "LogEvent" && x.GetParameterCount() == 4 && NET_SDK.IL2CPP.il2cpp_type_get_name(x.GetParameters()[2].Ptr).Equals("System.Int64")).First(), AccessTools.Method(typeof(BanBypass), "LogEvent"));
+            H.Patch(API.GetProperty("DeviceID").GetGetMethod(), AccessTools.Method(typeof(Main), "DeviceID"));
+            H.Patch(Amp.GetMethod("InitializeDeviceId"), AccessTools.Method(typeof(Main), "DeviceID1"));
+            H.Patch(Amp.GetMethods(x => x.Name == "LogEvent" && x.GetParameterCount() == 4 && NET_SDK.IL2CPP.il2cpp_type_get_name(x.GetParameters()[2].Ptr).Equals("System.Int64")).First(), AccessTools.Method(typeof(Main), "LogEvent"));
 
             if (Config.CFG.ConsolePrint)
             {
