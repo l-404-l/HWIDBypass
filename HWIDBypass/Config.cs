@@ -21,7 +21,7 @@ namespace HWIDBypass
             if (CFG != null)
                 File.WriteAllText(MainFolder + "//" + ModLocation, JsonConvert.SerializeObject(CFG));
         }
-        public static Config LoadConfig()
+        public static Config LoadConfig() 
         {
             Directory.CreateDirectory(MainFolder);
 
