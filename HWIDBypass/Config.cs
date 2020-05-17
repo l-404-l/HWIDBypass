@@ -23,7 +23,6 @@ namespace HWIDBypass
         }
         public static Config LoadConfig()
         {
-            
             Directory.CreateDirectory(MainFolder);
 
             if (!File.Exists(MainFolder + "//" + ModLocation))
