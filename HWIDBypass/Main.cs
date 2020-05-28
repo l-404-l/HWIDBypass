@@ -48,7 +48,7 @@ namespace HWIDBypass
         public static string DeviceID1(IntPtr instance) =>
             GetDevice();
 
-        public static int LogEvent(IntPtr instance, string var, IDictionary<string, object> var2, long var3, IntPtr var4) => 0;
+        public static void LogEvent(IntPtr instance, string var, IDictionary<string, object> var2, long var3, IntPtr var4) { }
 
         private static string GetDevice()
         {
