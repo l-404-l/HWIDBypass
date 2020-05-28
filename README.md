@@ -1,12 +1,13 @@
-# BanBypass
+# HWIDBypass
 Disables your hwid from being sent to VRChat.
 
 # Requirements
 - [MelonLoader](https://github.com/HerpDerpinstine/MelonLoader)
-- Public Releases [Discord](https://discord.gg/PMmbwc2) Files
+- Unhollower 3.1 and correct Newtonsoft build not the il2cpp compiled version.
+- Use [MLEZUpdater](https://github.com/l-404-l/MLEZUpdater) for perfect Installation.
 
 # Install
-- Join my public releases [discord](https://discord.gg/PMmbwc2) for required files
+- Join my public releases [discord](https://discord.gg/PMmbwc2) for support
 
 
 # Please do not use my code for your own projects.
