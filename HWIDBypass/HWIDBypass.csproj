@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,8 +30,13 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Il2Cppmscorlib">
+      <HintPath>..\..\..\..\steam\steamapps\common\VRChat\MelonLoader\Managed\Il2Cppmscorlib.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="MelonLoader.ModHandler">
       <HintPath>..\..\..\..\steam\steamapps\common\VRChat\MelonLoader\MelonLoader.ModHandler.dll</HintPath>
       <Private>False</Private>
@@ -48,6 +54,10 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="Transmtn">
+      <HintPath>..\..\..\..\steam\steamapps\common\VRChat\MelonLoader\Managed\Transmtn.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="UnhollowerBaseLib">
       <HintPath>..\..\..\..\steam\steamapps\common\VRChat\MelonLoader\Managed\UnhollowerBaseLib.dll</HintPath>
       <Private>False</Private>
