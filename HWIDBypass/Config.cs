@@ -10,16 +10,17 @@ namespace HWIDBypass
 {
     public class Config
     {
-        public static string MainFolder = "404Mods";
+        public static string MainFolder = "404Mods/HWIDBypass";
         public static string ModLocation = "hwid.json";
         public static Config CFG;
+        public static IntPtr HWIDP = IntPtr.Zero;
 
-        public string HWID = null;
+        public string HWID;
         public bool ConsolePrint = true;
         public static void SaveConfig()
         {
             if (CFG != null)
-                File.WriteAllText(MainFolder + "//" + ModLocation, JsonConvert.SerializeObject(CFG));
+                File.WriteAllText(MainFolder + "//" + ModLocation, JsonConvert.SerializeObject(CFG,Formatting.Indented));
         }
         public static Config LoadConfig() 
         {
